@@ -4,7 +4,7 @@
   /* -------------------------------------------------------------------------- */
   
 
-Nano33BleKeyboard bleKb("滅火器");
+Nano33BleKeyboard bleKb("KB");
 
 // Tracking index for the end of the writing animation ticker.
 int sTickerIndex = -1;

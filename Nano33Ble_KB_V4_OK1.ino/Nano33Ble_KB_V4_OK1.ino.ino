@@ -93,33 +93,32 @@ int A = A1;
    analogWrite(LED_BUILTIN, kLedConnectedIntensity);
    auto *kb = bleKb.hid();
    digitalWrite(4, HIGH);
-    //pi4 插銷狀態判斷
+
     boolean pin2State;
-    boolean button4;      // 穩定後的按鈕狀態
-    pin2State = digitalRead(4);      // 讀取第一次按鈕狀態
-    delay(10);      // 隔 10 毫秒後再讀取第二次狀態
-    if (digitalRead(4) == pin2State)    //如果兩次狀態相同，判定按鈕狀態穩定
+    boolean button4;      
+    pin2State = digitalRead(4);      
+    delay(10);     
+    if (digitalRead(4) == pin2State)    
     {
-      button4 = digitalRead(4); // 判定按鈕狀態
+      button4 = digitalRead(4); 
     } 
-  if (!button4 && f4 == 0) {            //pin2 有接通
+  if (!button4 && f4 == 0) {           
        stringWriter.write(*kb, 'o');
        f4 = 1;
-  }else if(button4 && f4 == 1 ){                                //pin2 沒接通
+  }else if(button4 && f4 == 1 ){
        stringWriter.write(*kb, 'i');
        f4 = 0;
     } else{
       } 
-        //piA1 按壓判斷
     float pin3State;
-    float buttonA;      // 穩定後的按鈕狀態
+    float buttonA;     
     pin3State =0;
-    pin3State = analogRead(A);      // 讀取第一次按鈕狀態
-    delay(10);      // 隔 10 毫秒後再讀取第二次狀態
-    if (analogRead(A)<500 && pin3State<500)    //如果兩次狀態相同，判定按鈕狀態穩定
+    pin3State = analogRead(A);     
+    delay(10);     
+    if (analogRead(A)<500 && pin3State<500)  
     {
-      buttonA = 1; // 判定按鈕狀態
-      //Serial.println(pin3State);
+      buttonA = 1; 
+      
     }else{
       buttonA = 0;
         } 
@@ -131,7 +130,6 @@ int A = A1;
         f3 = 0;
       } else{
         } 
-  //pi2 狀態判斷
   int button2 = digitalRead(2);
   Serial.println(button2);
   //Serial.print("");
